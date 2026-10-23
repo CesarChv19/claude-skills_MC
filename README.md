@@ -42,6 +42,26 @@ cualquier proyecto/cliente. Trae:
 - **Checklist final** — lista de verificación rápida al iniciar la construcción de un requerimiento
   nuevo, con referencia a la sección correspondiente de cada punto.
 
+### `analizar-requerimiento/`
+
+Se dispara al **analizar** (no construir) un requerimiento nuevo a partir de su HU/reglas de
+negocio, en cualquier proyecto/cliente. Complementa a `implementar-requerimiento/` — cubre la fase
+previa. Trae:
+
+- **§1 — Lectura y extracción** — objetivo/alcance/actores/reglas, inconsistencias internas del
+  documento, revisar TODAS las imágenes/evidencias embebidas (no solo las obvias).
+- **§2 — Comparación con lo existente** — reutilizar vs. construir nuevo, aislar en vez de alterar
+  comportamiento compartido, verificar contra BD real DEV (nunca reusar credenciales sin
+  autorización).
+- **§3 — Preguntas abiertas** — Pendiente/Resuelto explícito; nada en la estimación depende de una
+  pregunta sin responder.
+- **§4 — Inventario** — objetos de BD/pantallas/reglas/reportes, marcados (Nuevo) o (Modificación).
+- **§5 — Entregables** — por defecto solo se genera el `.xlsx` de estimación (desde plantilla
+  existente, columnas fijas N°/Actividad/Hrs./Días); Análisis de Impacto y Plan de Implementación
+  se desarrollan en la conversación pero no se generan como archivo salvo que se pida; horas
+  realistas (acreditar reutilización, no heurísticas parejas).
+- **§6 — Estado y bloqueantes** — resumen de confirmado/pendiente/bloqueante al cierre del análisis.
+
 ## Instalación de una skill
 
 ```bash
