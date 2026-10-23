@@ -1,13 +1,27 @@
 # claude-skills_MC
 
-Repositorio personal de skills para Claude Code. Cada carpeta es una skill independiente
-(`<nombre>/SKILL.md`), pensada para copiarse a `~/.claude/skills/<nombre>/` y quedar disponible
-en cualquier proyecto, sin importar el cliente/repo en el que se esté trabajando.
+Marketplace personal de plugins de Claude Code. El repo es a la vez marketplace
+(`.claude-plugin/marketplace.json`) y contenedor de plugins (`plugins/<plugin>/`); hoy solo
+publica un plugin, `mc-skills`, con dos skills independientes, pensadas para usarse en cualquier
+proyecto/cliente sin importar el repo en el que se esté trabajando.
 
-Este repo es solo respaldo/versionado del contenido — Claude Code no lee las skills desde aquí,
-las lee desde `~/.claude/skills/`. Si editas una skill, hay que sincronizar ambas copias a mano.
+Este repo **sí es la fuente de verdad** que Claude Code instala directamente — no hace falta
+copiar nada a mano a `~/.claude/skills/`. Si editas una skill, comitea/pushea aquí y actualiza el
+plugin en cada máquina (ver [Instalación](#instalación)).
 
-## Skills
+## Estructura
+
+```
+claude-skills_MC/
+  .claude-plugin/marketplace.json        marketplace "claude-skills-mc"
+  plugins/mc-skills/
+    .claude-plugin/plugin.json           plugin "mc-skills"
+    skills/
+      analizar-requerimiento/SKILL.md
+      implementar-requerimiento/SKILL.md
+```
+
+## Skills (dentro del plugin `mc-skills`)
 
 ### `implementar-requerimiento/`
 
@@ -62,8 +76,25 @@ previa. Trae:
   realistas (acreditar reutilización, no heurísticas parejas).
 - **§6 — Estado y bloqueantes** — resumen de confirmado/pendiente/bloqueante al cierre del análisis.
 
-## Instalación de una skill
+## Instalación
 
-```bash
-cp -r <nombre-skill> ~/.claude/skills/<nombre-skill>
+Una vez por máquina, dentro de una sesión de Claude Code:
+
+```
+/plugin marketplace add CesarChv19/claude-skills_MC
+/plugin install mc-skills@claude-skills-mc
+```
+
+Las skills se siguen auto-cargando por descripción igual que antes. Para invocarlas explícitamente
+por slash command, ahora llevan el prefijo del plugin: `/mc-skills:analizar-requerimiento` y
+`/mc-skills:implementar-requerimiento` (antes, sin plugin, eran `/analizar-requerimiento` y
+`/implementar-requerimiento` sin prefijo).
+
+### Recibir actualizaciones
+
+Tras pushear un cambio a este repo, en cada máquina:
+
+```
+/plugin marketplace update claude-skills-mc
+/plugin update mc-skills@claude-skills-mc
 ```
