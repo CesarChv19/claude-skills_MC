@@ -1,0 +1,14 @@
+{
+  "name": "claude-skills-mc",
+  "description": "Marketplace personal de skills para el flujo de requerimientos de MC Collect",
+  "owner": {
+    "name": "Cesar Chavez"
+  },
+  "plugins": [
+    {
+      "name": "mc-skills",
+      "source": "./plugins/mc-skills",
+      "description": "Skills de análisis e implementación de requerimientos MC Collect"
+    }
+  ]
+}
