@@ -327,6 +327,13 @@ enviado una primera vez:
 - Esta misma regla aplica igual a cualquier operación de git que quede visible para terceros o en
   historial compartido (push, pull request, merge, etc.): nunca debe aparecer Claude como
   colaborador/autor/revisor en metadata visible para otros.
+- **Formato del mensaje — Conventional Commits:** `<tipo>(<alcance>): <descripción>`. Tipos
+  válidos: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`,
+  `revert`. La descripción va en español, minúsculas, modo imperativo, sin punto final, idealmente
+  ≤72 caracteres en la primera línea. El `<alcance>` entre paréntesis es opcional — usarlo cuando
+  ayude a ubicar qué parte cambió (nombre de carpeta/módulo/SP/skill). Aplica tanto al resumen que
+  se le da al usuario para que comitee él mismo, como al mensaje si Claude llega a comitear por
+  petición explícita.
 
 ## Checklist rápido al empezar a construir un requerimiento nuevo
 
